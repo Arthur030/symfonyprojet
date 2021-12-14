@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<title>Tour new</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	</head>
+	<body>
+		{{ form_start(tourForm) }}
+		{{ form_label(tourForm.title) }}
+		{{ form_widget(tourForm.title) }}
+
+		{{ form_row(tourForm.name) }}
+		{{ form_row(tourForm.price) }}
+		{{ form_row(tourForm.duration) }}
+		{{ form_row(tourForm.minPerson) }}
+		{{ form_row(tourForm.maxPerson) }}
+		{{ form_row(tourForm.wheelchairAcces) }}
+		{{ form_row(tourForm.categorie) }}
+
+
+		{{ form_end(tourForm) }}
+	</body>
+</html>

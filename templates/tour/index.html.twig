@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TourController!
+{% endblock %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+
+	<div class="example-wrapper">
+		{% for tour in tours %}
+			<h5>
+				id:
+				{{ tour.id }}
+			</h5>
+			<h5>
+				title:
+				{{ tour.title }}
+			</h5>
+			<img class="tour-img" src="{{asset('uploads/toursPictures/' ~ tour.img)}}">
+			<h5>
+				name:
+				{{ tour.name }}
+			</h5>
+			<h5>
+				price:
+				{{ tour.price }}
+			</h5>
+			<h5>
+				img:
+				{{ tour.img }}
+			</h5>
+			<h5>
+				duration:
+				{{ tour.duration }}
+				minutes
+			</h5>
+			<h5>
+				entre
+				{{ tour.minPerson }}
+				et
+				{{ tour.maxPerson }}
+				personnes
+			</h5>
+			<h5>
+				Acces chaise roulante:
+				{{ tour.wheelchairAcces }}
+			</h5>
+			<h5>
+				categorie:
+				{% for categorie in tour.categorie %}
+					{{ categorie.name }}
+				{% endfor %}
+			</h5>
+
+			{% if app.user and app.user == tour.user %}
+				<li>
+					<a href="{{ path('tour_delete', {id: tour.id}) }}">DELETE</a>
+					<a href="{{ path('tour_update', {id: tour.id}) }}">EDIT</a>
+
+				</li>
+
+			{% endif %}
+			<hr/>
+		{% endfor %}
+	</div>
+{% endblock %}
